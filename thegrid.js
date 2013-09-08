@@ -39,6 +39,10 @@ function Grid(targetElement) {
             this.widget.css(attr, value);
         };
 
+        this.addClass = function(klass) {
+            this.widget.addClass(klass);
+        };
+
         this.height = function(height) { 
             if(height === undefined) return parseInt(this.css("height"));
             this.widget.css("height", height);

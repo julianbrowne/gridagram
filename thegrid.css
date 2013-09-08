@@ -1,6 +1,13 @@
 
 .thegrid {
-    border: 1px solid blue;
+
+}
+
+.thegrid:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
 }
 
 .thegrid .widget {
@@ -12,7 +19,7 @@
     overflow: auto;
     border-radius: 10px;
     border: 1px solid #EEEEEE;
-    box-shadow: 5px 5px 2px #DDDDDD;
+    /*box-shadow: 5px 5px 2px #DDDDDD;*/
 }
 
 .thegrid .widget .title {
@@ -47,7 +54,7 @@
     float: left;
     width: 0;
     white-space: nowrap;
-    content: ". . . . . . . . . . . . . . . . . . . . . . . . .";
+    content: ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .";
 }
 
 .thegrid .widget ul.leaders span:first-child {

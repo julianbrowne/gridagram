@@ -11,6 +11,8 @@ Manages dynamic grid layout of on screen data like a poor man's gridster
     var grid = new Grid("#results");                    // target element
     grid.autoHeight = true;                             // align heights of all widget elements
 
+    grid.widgetDefaults.width = 250;                    // width of all widgets
+
     grid.empty();                                       // clears target element
 
     var w1 = new grid.Widget("widget 1");               // make a new widget
