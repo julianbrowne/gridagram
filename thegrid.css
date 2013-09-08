@@ -1,0 +1,60 @@
+
+.thegrid {
+    border: 1px solid blue;
+}
+
+.thegrid .widget {
+    color: #000000;
+    background: #FFFFFF;
+    float: left;
+    padding: 5px;
+    margin: 5px;
+    overflow: auto;
+    border-radius: 10px;
+    border: 1px solid #EEEEEE;
+    box-shadow: 5px 5px 2px #DDDDDD;
+}
+
+.thegrid .widget .title {
+    text-align: center;
+}
+
+.thegrid .widget .line {
+    margin: 5px;
+}
+
+.thegrid .widget .line .key {
+    padding: 0;
+}
+
+.thegrid .widget ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.thegrid .widget ul.leaders {
+    max-width: 40em;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.thegrid .widget ul.leaders li {
+    margin: 5px;
+}
+
+.thegrid .widget ul.leaders li:before {
+    float: left;
+    width: 0;
+    white-space: nowrap;
+    content: ". . . . . . . . . . . . . . . . . . . . . . . . .";
+}
+
+.thegrid .widget ul.leaders span:first-child {
+    background: #FFFFFF;
+}
+
+.thegrid .widget ul.leaders span.value {
+    background: #FFFFFF;
+    float: right;
+}
