@@ -27,7 +27,7 @@
 }
 
 .thegrid .widget .line {
-    margin: 5px;
+    margin: 0 0 5px 0;
 }
 
 .thegrid .widget .line .key {
@@ -47,7 +47,7 @@
 }
 
 .thegrid .widget ul.leaders li {
-    margin: 5px;
+
 }
 
 .thegrid .widget ul.leaders li:before {

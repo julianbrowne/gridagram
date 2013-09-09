@@ -49,11 +49,12 @@ function Grid(targetElement) {
         };
 
 
-        this.addLine = function(text) {
+        this.addLine = function(text, klass) { 
+            var klass = (klass === undefined) ? "" : klass;
             var id = (this.lines++);
             var lineId = "line-item-" + this.index + "-" + id;
             var lineSelector = "#" + lineId;
-            var listItem = $("<li>",   { id: lineId, class: "line" });
+            var listItem = $("<li>",   { id: lineId, class: "line " + klass });
             this.list.append(listItem);
             if(text !== undefined) $(lineSelector).append(text);
             if(this.autoStretch) this.stretchToFit();

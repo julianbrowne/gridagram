@@ -35,7 +35,7 @@ Manages dynamic grid layout of on screen data like a poor man's gridster
     w3.addKeyValue("left","right");
 
     w1.addLine("something");                            // add regular lines of text
-    w2.addLine("something");
+    w2.addLine("something", "error");                   // applies css class "error" to line
     w3.addLine("something");
 
     var w4 = new grid.Widget("widget 4");
