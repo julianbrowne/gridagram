@@ -3,14 +3,14 @@
 
 }
 
-.thegrid:after {
+.thegrid:after { 
     content: " ";
     display: block;
     height: 0;
     clear: both;
 }
 
-.thegrid .widget {
+.thegrid .widget { 
     color: #000000;
     background: #FFFFFF;
     float: left;
@@ -20,27 +20,32 @@
     border-radius: 10px;
     border: 1px solid #EEEEEE;
     /*box-shadow: 5px 5px 2px #DDDDDD;*/
+    -webkit-transition: all 2s ease;
+    -moz-transition: all 2s ease;
+    -o-transition: all 2s ease;
+    transition: all 2s ease;
 }
 
-.thegrid .widget .title {
+.thegrid .widget .title { 
     text-align: center;
+    margin-bottom: 20px;
 }
 
-.thegrid .widget .line {
+.thegrid .widget .line { 
     margin: 0 0 5px 0;
 }
 
-.thegrid .widget .line .key {
+.thegrid .widget .line .key { 
     padding: 0;
 }
 
-.thegrid .widget ul {
+.thegrid .widget ul { 
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.thegrid .widget ul.leaders {
+.thegrid .widget ul.leaders { 
     max-width: 40em;
     padding: 0;
     overflow-x: hidden;
