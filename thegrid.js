@@ -23,11 +23,13 @@ function Grid(targetElement) {
         this.id     = grid.selector + "-widget-" + this.index;
         this.width  = grid.widgetDefaults.width;
         this.height = grid.widgetDefaults.height;
+        this.lines = 0;
         this.widget = null;
         this.lines = 0;
         this.autoStretch = false;
+        var w = this;
 
-        this.postWidget = function() {
+        this.postWidget = function() { 
             var widgetHTML   = $("<div>", { 
                 id: this.id, 
                 class: "widget", 
@@ -37,22 +39,49 @@ function Grid(targetElement) {
             this.widget = $("#" + this.id);
         }
 
-        this.addList = function() {
-            var testListHTML = $("<ul>", {});
-            this.widget.append(testListHTML);
-            this.list = this.widget.find("ul");
+        this.addLine = function(text, klass) { 
+            this.addLineEntry("<p>", false)(text, klass);
         };
 
-        this.addLine = function(text, klass) { 
-            var klass = (klass === undefined) ? "" : klass;
-            var id = (this.lines++);
-            var lineId = "line-item-" + this.index + "-" + id;
-            var lineSelector = "#" + lineId;
-            var listItem = $("<li>",   { id: lineId, class: "line " + klass });
-            this.list.append(listItem);
-            if(text !== undefined) $(lineSelector).append(text);
-            if(this.autoStretch) this.stretchToFit();
-            return $(lineSelector);
+        this.addListItem = function(text, klass) { 
+            this.addLineEntry("<li>", true)(text, klass);
+        };
+
+        this.addList = function() { 
+            var listHTML = $("<ul></ul>", {});
+            if(this.widget.find("ul").length === 0)
+                this.widget.append(listHTML);
+            return this.widget.find("ul");
+        };
+
+        this.addKeyValue = function(key, value, keyAttrs, valueAttrs) { 
+            var keyAttrs   = (keyAttrs   === undefined) ? {} : keyAttrs;
+            var valueAttrs = (valueAttrs === undefined) ? {} : valueAttrs;
+            keyAttrs = $.extend({}, keyAttrs);
+            keyAttrs.class = "key " + keyAttrs.class;
+            var keySpan = $("<span>", keyAttrs).html(key);
+            valueAttrs = $.extend({}, valueAttrs);
+            valueAttrs.class = "value " + valueAttrs.class;
+            var valSpan = $("<span>", valueAttrs).html(value);
+            var keyElement = this.addLineEntry("<li>", true)(keySpan);
+            keyElement.append(valSpan);
+            this.widget.find("ul").addClass("leaders");
+        };
+
+        this.addLineEntry = function(type, isListType) {
+            return function(text, klass) {
+                var klass = (klass === undefined) ? "" : klass;
+                var id = w.id + "-line-" + (w.lines++);
+                var entryHTML = $(type, { id: id, class: "line " + klass });
+                if(isListType)
+                    var target = w.addList();
+                else
+                    var target = w.widget;
+                target.append(entryHTML);
+                if(text !== undefined) $("#" + id).html(text);
+                if(w.autoStretch) w.stretchToFit();
+                return $("#" + id);
+            }
         };
 
         this.addTitle = function(titleText) { 
@@ -76,21 +105,6 @@ function Grid(targetElement) {
             if(height !== undefined)
                 this.widget.css("height", height + "px");
             return parseInt(this.widget.css("height"));
-        };
-
-        this.addKeyValue = function(key, value, keyAttrs, valueAttrs) { 
-            var keyAttrs = (keyAttrs === undefined) ? {} : keyAttrs;
-            var valueAttrs = (valueAttrs === undefined) ? {} : valueAttrs;
-            this.widget.children("ul").addClass("leaders");
-            var line = this.addLine();
-            keyAttrs = $.extend({}, keyAttrs);
-            keyAttrs.class = "key " + keyAttrs.class;
-            var keySpan = $("<span>", keyAttrs).html(key);
-            valueAttrs = $.extend({}, valueAttrs);
-            valueAttrs.class = "value " + valueAttrs.class;
-            var valSpan = $("<span>", valueAttrs).html(value);
-            line.append(keySpan).append(valSpan);
-            return line;
         };
 
         this.applyHeights = function(height) { 
