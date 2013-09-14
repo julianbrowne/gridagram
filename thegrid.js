@@ -7,47 +7,41 @@ function Grid(targetElement) {
     this.widgets = [];
     this.root = $(targetElement);
     this.autoHeight = false;
-    this.widgetDefaults = {
+    this.widgetDefaults = { 
         height: 100,
         width: 200
     };
+    this.selector = "grid-" + $(".thegrid").length;
     var grid = this;
 
     grid.root.addClass('thegrid');
+    grid.root.addClass(grid.selector);
 
     this.Widget = function(title) { 
-        this.title = title;
-        this.index = grid.widgets.length;
-        this.id = "widget-" + this.index;
-        this.width = grid.widgetDefaults.width;
+
+        this.index  = grid.widgets.length;
+        this.id     = grid.selector + "-widget-" + this.index;
+        this.width  = grid.widgetDefaults.width;
         this.height = grid.widgetDefaults.height;
-        var widgetHTML = $("<div>", { id: this.id, class: "widget", style: "width: " + this.width + "; " + "height: " + this.height + ";" });
-        var titleHTML  = $("<div>", { class: "title" });
-        grid.root.append(widgetHTML);
-        this.widget = $("#" + this.id);
-        this.widget.append(titleHTML);
-        this.widget.children("div").html(this.title);
-        var testListHTML = $("<ul>", {});
-        this.widget.append(testListHTML);
-        this.list = this.widget.children("ul");
+        this.widget = null;
         this.lines = 0;
         this.autoStretch = false;
-        grid.widgets.push(this);
 
-        this.css = function(attr, value) { 
-            if(value === undefined) return this.widget.css(attr);
-            this.widget.css(attr, value);
+        this.postWidget = function() {
+            var widgetHTML   = $("<div>", { 
+                id: this.id, 
+                class: "widget", 
+                style: "width: " + this.width + "; " + "height: " + this.height + ";"
+            });
+            grid.root.append(widgetHTML);
+            this.widget = $("#" + this.id);
+        }
+
+        this.addList = function() {
+            var testListHTML = $("<ul>", {});
+            this.widget.append(testListHTML);
+            this.list = this.widget.find("ul");
         };
-
-        this.addClass = function(klass) {
-            this.widget.addClass(klass);
-        };
-
-        this.height = function(height) { 
-            if(height === undefined) return parseInt(this.css("height"));
-            this.widget.css("height", height);
-        };
-
 
         this.addLine = function(text, klass) { 
             var klass = (klass === undefined) ? "" : klass;
@@ -59,6 +53,29 @@ function Grid(targetElement) {
             if(text !== undefined) $(lineSelector).append(text);
             if(this.autoStretch) this.stretchToFit();
             return $(lineSelector);
+        };
+
+        this.addTitle = function(titleText) { 
+            var titleHTML = $("<div>", { class: "title" });
+            var titleElement = this.widget.find(".title");
+            if(titleElement.length === 0)
+                this.widget.prepend(titleHTML);
+            this.widget.find(".title").html(titleText);
+        };
+
+        this.css = function(attr, value) { 
+            if(value === undefined) return this.widget.css(attr);
+            this.widget.css(attr, value);
+        };
+
+        this.addClass = function(klass) { 
+            this.widget.addClass(klass);
+        };
+
+        this.cssHeight = function(height) { 
+            if(height !== undefined)
+                this.widget.css("height", height + "px");
+            return parseInt(this.widget.css("height"));
         };
 
         this.addKeyValue = function(key, value, keyAttrs, valueAttrs) { 
@@ -79,15 +96,15 @@ function Grid(targetElement) {
         this.applyHeights = function(height) { 
             grid.widgets.forEach( 
                 function(widget) { 
-                    widget.height(height);
+                    widget.cssHeight(height);
                 }
             );            
         };
 
         this.stretchToFit = function() { 
-            while(this.hasVerticalScrollBar() === true) { 
-                var newHeight = this.height() + 5;
-                this.height(newHeight);
+            if(this.hasVerticalScrollBar()) { 
+                var newHeight = this.widget[0].scrollHeight;
+                this.cssHeight(newHeight);
             }
             if(grid.autoHeight) { 
                 this.applyHeights(newHeight);
@@ -98,6 +115,15 @@ function Grid(targetElement) {
         this.hasVerticalScrollBar = function() { 
             return ((this.widget[0].clientHeight < this.widget[0].scrollHeight)); // || (this.widget[0].clientWidth < this.widget[0].scrollWidth));
         };
+
+        this.empty = function() { 
+            this.widget.empty();
+        };
+
+        grid.widgets.push(this);
+        this.postWidget();
+        if(title!==undefined) this.addTitle(title);
+        this.addList();
 
     };
 
