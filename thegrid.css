@@ -37,6 +37,8 @@
 
 .thegrid .widget .line .key { 
     padding: 0;
+    -moz-user-select: none;
+    -webkit-user-select: none;
 }
 
 .thegrid .widget ul { 
@@ -69,4 +71,7 @@
 .thegrid .widget ul.leaders span.value {
     background: #FFFFFF;
     float: right;
+    cursor: pointer;
+    -moz-user-select: none;
+    -webkit-user-select: none;
 }

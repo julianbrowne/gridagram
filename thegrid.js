@@ -54,9 +54,12 @@ function Grid(targetElement) {
             return this.widget.find("ul");
         };
 
-        this.addKeyValue = function(key, value, keyAttrs, valueAttrs, mesg, msgAttrs) { 
-            var keyAttrs   = (keyAttrs   === undefined) ? {} : keyAttrs;
-            var valueAttrs = (valueAttrs === undefined) ? {} : valueAttrs;
+        this.addKeyValue = function(key, value, mesg, opts) { 
+            if(opts === undefined) var opts = {};
+            if(mesg === undefined || mesg === null || mesg === '') var mesg = undefined;
+            var keyAttrs   = (opts.key   === undefined) ? {} : opts.key;
+            var valueAttrs = (opts.value === undefined) ? {} : opts.value;
+            var msgAttrs   = (opts.msg   === undefined) ? {} : opts.msg;
             keyAttrs = $.extend({}, keyAttrs);
             keyAttrs.class = "key " + keyAttrs.class;
             var keySpan = $("<span>", keyAttrs).html(key);
@@ -67,7 +70,6 @@ function Grid(targetElement) {
             keyElement.append(valSpan);
             if(mesg !== undefined) { 
                 var msgSpan = $("<div>", msgAttrs).html(mesg);
-                var msgAttrs = (msgAttrs === undefined) ? {} : msgAttrs;
                 keyElement.append(msgSpan);
                 msgSpan.hide();
                 valSpan.click(function(e) { 

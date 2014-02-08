@@ -70,7 +70,11 @@
                 g1w1.addLine("key-" + i + "-value-" + i, "green");
             }
 
-            // add key-values to grid 2 widget 1
+            /**
+             *  add key-values to grid 2 widget 1
+             *
+             *  addKeyValue(key, value, [ mesg, opts ]);
+            **/
 
             g2w1.addKeyValue("monday",1234);
             g2w1.addKeyValue("tuesday",32);
@@ -84,7 +88,7 @@
             g2w2.addLine("lorem ipsum thingumy");
             g2w2.addKeyValue("pi",3.141);
             g2w2.addLine("lorem ipsum thingumy");
-            g2w3.addKeyValue("pi",3.141,{},{},"this is pi",{});
+            g2w3.addKeyValue("pi", 3.141, "this is pi", {});
 
             // add six random height and colour widgets to grid3
 
