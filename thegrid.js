@@ -54,7 +54,7 @@ function Grid(targetElement) {
             return this.widget.find("ul");
         };
 
-        this.addKeyValue = function(key, value, keyAttrs, valueAttrs) { 
+        this.addKeyValue = function(key, value, keyAttrs, valueAttrs, mesg, msgAttrs) { 
             var keyAttrs   = (keyAttrs   === undefined) ? {} : keyAttrs;
             var valueAttrs = (valueAttrs === undefined) ? {} : valueAttrs;
             keyAttrs = $.extend({}, keyAttrs);
@@ -65,6 +65,17 @@ function Grid(targetElement) {
             var valSpan = $("<span>", valueAttrs).html(value);
             var keyElement = this.addLineEntry("<li>", true)(keySpan);
             keyElement.append(valSpan);
+            if(mesg !== undefined) { 
+                var msgSpan = $("<div>", msgAttrs).html(mesg);
+                var msgAttrs = (msgAttrs === undefined) ? {} : msgAttrs;
+                keyElement.append(msgSpan);
+                msgSpan.hide();
+                valSpan.click(function(e) { 
+                    msgSpan.toggle();
+                    msgSpan.css('top', e.pageY);
+                    msgSpan.css('left', e.pageX - 300);
+                });
+            }
             this.widget.find("ul").addClass("leaders");
         };
 
