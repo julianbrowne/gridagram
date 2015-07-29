@@ -21,3 +21,5 @@ elements to work on:
     var data = [ some elements ];
 
     var grid = $("#somediv").girdagram(data);
+
+![screenshot](example.jpg)
