@@ -1,36 +1,5 @@
-<html>
-<head>
-    <title>The Grid Self-Test</title>
-    <link rel="stylesheet" media="all" href="thegrid.css" />
-    <script src="jquery-2.0.3.js"></script>
-    <script src="thegrid.js"></script>
-    <style>
-        .center {
-            text-align: center;
-        }
 
-        .thegrid .widget.red { 
-            background: red;
-        }
-
-        .thegrid .widget.green { 
-            background: green;
-        }
-
-        .thegrid .widget.orange { 
-            background: orange;
-        }
-    </style>
-</head>
-<body>
-    <h1>TheGrid Self-Test</h1>
-
-    <div id="results1">should not see this</div>
-    <div id="results2"></div>
-    <div id="results3"></div>
-
-    <script type="text/javascript">
-        $(function(){
+/**
 
             // make three grids
 
@@ -70,11 +39,8 @@
                 g1w1.addLine("key-" + i + "-value-" + i, "green");
             }
 
-            /**
-             *  add key-values to grid 2 widget 1
-             *
-             *  addKeyValue(key, value, [ mesg, opts ]);
-            **/
+            // add key-values to grid 2 widget 1
+            // addKeyValue(key, value, [ mesg, opts ]);
 
             g2w1.addKeyValue("monday",1234);
             g2w1.addKeyValue("tuesday",32);
@@ -100,8 +66,5 @@
                 g3widgets[i].cssHeight(Math.floor(100 + Math.random() * 50));
                 g3widgets[i].addClass(colours[(Math.floor(Math.random() * 3))]);
             }
+**/
 
-        });
-    </script>
-</body>
-</html>

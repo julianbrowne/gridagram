@@ -1,0 +1,42 @@
+<html>
+<head>
+    <title>Gridagram: Example 1</title>
+
+    <script src="../vendor/jquery/jquery-2.1.4.js"></script>
+
+    <link rel="stylesheet" media="all" href="examples.css" />
+
+    <script src="../lib/jquery.gridagram.js"></script>
+    <link rel="stylesheet" media="all" href="../lib/gridagram.css" />
+</head>
+<body>
+    <a href="index.html">examples</a>
+    <h1>Gridagram: Example 1</h1>
+    <p>Simple data array with title and body</p>
+    <code><pre>
+
+        var data = [ 
+            { title: "a-title", body: "a-body"},
+            { title: "b-title", body: "b-body"},
+            { title: "c-title", body: "c-body"}
+        ];
+
+        $("#results").gridagram(data);
+
+    </pre></code>
+    <div id="results"></div>
+    <script>
+        $(function() { 
+
+            var data = [ 
+                { title: "a-title", body: "a-body"},
+                { title: "b-title", body: "b-body"},
+                { title: "c-title", body: "c-body"}
+            ];
+
+            $("#results").gridagram(data);
+
+        });
+    </script>
+</body>
+</html>

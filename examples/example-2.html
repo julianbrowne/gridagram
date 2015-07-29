@@ -1,0 +1,48 @@
+<html>
+<head>
+    <title>Gridagram: Example 2</title>
+
+    <script src="../vendor/jquery/jquery-2.1.4.js"></script>
+
+    <link rel="stylesheet" media="all" href="examples.css" />
+
+    <script src="../lib/jquery.gridagram.js"></script>
+    <link rel="stylesheet" media="all" href="../lib/gridagram.css" />
+</head>
+<body>
+    <a href="index.html">examples</a>
+    <h1>Gridagram: Example 2</h1>
+    <p>Simple data array with unusual content fields</p>
+    <code><pre>
+
+        var data = [ 
+            { a: "a-title", b: { c: "a-body" } },
+            { a: "b-title", b: { c: "b-body" } },
+            { a: "c-title", b: { c: "c-body" } }
+        ];
+
+        $("#results").gridagram(data, { 
+            titleField: "a", 
+            bodyField: function(e) { return e.b.c; }
+        });
+
+    </pre></code>
+    <div id="results"></div>
+    <script>
+        $(function() { 
+
+            var data = [ 
+                { a: "a-title", b: { c: "a-body" } },
+                { a: "b-title", b: { c: "b-body" } },
+                { a: "c-title", b: { c: "c-body" } }
+            ];
+
+            $("#results").gridagram(data, { 
+                titleField: "a", 
+                bodyField: function(e) { return e.b.c; }
+            });
+
+        });
+    </script>
+</body>
+</html>

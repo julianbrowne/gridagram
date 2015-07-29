@@ -1,74 +1,82 @@
 
-.thegrid {
+.gridagram {
 
 }
 
-.thegrid:after { 
+.gridagram:after { 
     content: " ";
     display: block;
     height: 0;
     clear: both;
 }
 
-.thegrid .widget { 
-    color: #000000;
-    background: #FFFFFF;
+.gridagram .widget { 
+    color: #FFFFFF;
+    background: #38AFA3;
     float: left;
     padding: 5px;
     margin: 5px;
     overflow: auto;
     border-radius: 10px;
     border: 2px solid #EEEEEE;
-    /*box-shadow: 5px 5px 2px #DDDDDD;*/
+    box-shadow: 5px 5px 2px #DDDDDD;
     -webkit-transition: all 2s ease;
     -moz-transition: all 2s ease;
     -o-transition: all 2s ease;
     transition: all 2s ease;
 }
 
-.thegrid .widget .title { 
+.gridagram .widget .title { 
+    font-weight: bold;
     text-align: center;
+    padding: 10px;
     margin-bottom: 20px;
+    border-bottom: 1px solid #EEEEEE;
 }
 
-.thegrid .widget .line { 
+.gridagram .widget .body { 
+    text-align: center;
+    margin: 10px;
+}
+
+.gridagram .widget .line { 
     margin: 0 0 5px 0;
 }
 
-.thegrid .widget .line .key { 
+.gridagram .widget .line .key { 
     padding: 0;
     -moz-user-select: none;
     -webkit-user-select: none;
 }
 
-.thegrid .widget ul { 
+.gridagram .widget ul { 
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.thegrid .widget ul.leaders { 
+.gridagram .widget ul.leaders { 
     max-width: 40em;
     padding: 0;
     overflow-x: hidden;
 }
 
-.thegrid .widget ul.leaders li {
+.gridagram .widget ul.leaders li {
 
 }
 
-.thegrid .widget ul.leaders li:before {
+.gridagram .widget ul.leaders li:before {
     float: left;
     width: 0;
     white-space: nowrap;
     content: ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .";
 }
 
-.thegrid .widget ul.leaders span:first-child {
+.gridagram .widget ul.leaders span:first-child {
     background: #FFFFFF;
 }
 
-.thegrid .widget ul.leaders span.value {
+.gridagram .widget ul.leaders span.value {
     background: #FFFFFF;
     float: right;
     cursor: pointer;
