@@ -33,6 +33,32 @@ describe("Gridagram", function() {
             helper.removeTestContainer("test");
         });
 
+        it("should make a 2 panel grid", function() { 
+            helper.addTestContainer("test");
+            var data = [
+                {title: "a1", body: "b1"}, 
+                {title: "a2", body: "b2"}
+            ];
+            $("#test").gridagram(data);
+            expect($(".gridagram").length).toEqual(1);
+            expect($(".widget").length).toEqual(2);
+            helper.removeTestContainer("test");
+        });
+
+        it("should maintain a 2 panel grid", function() { 
+            helper.addTestContainer("test");
+            var data = [
+                {title: "a1", body: "b1"}, 
+                {title: "a2", body: "b2"}
+            ];
+            $("#test").gridagram(data);
+            $("#test").gridagram(data);
+            $("#test").gridagram(data);
+            expect($(".gridagram").length).toEqual(1);
+            expect($(".widget").length).toEqual(2);
+            //helper.removeTestContainer("test");
+        });
+
     });
 
     describe("Content", function() { 
