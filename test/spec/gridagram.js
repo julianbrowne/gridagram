@@ -115,6 +115,18 @@ describe("Gridagram", function() {
             helper.removeTestContainer("test");
         });
 
+        it("should add a dynamic css class", function() { 
+            helper.addTestContainer("test");
+            var data = [{title: "aa", body: "bb", css: "something"}];
+            $("#test").gridagram(data, { 
+                widgetClass: function(e) { return e.css; }
+            });
+            expect($(".gridagram").length).toEqual(1);
+            expect($(".widget").length).toEqual(1);
+            expect($(".widget").attr("class")).toEqual("widget something");
+            helper.removeTestContainer("test");
+        });
+
     });
 
     describe("Options", function() { 
