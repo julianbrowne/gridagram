@@ -20,6 +20,6 @@ elements to work on:
 
     var data = [ some elements ];
 
-    var grid = $("#somediv").girdagram(data);
+    var grid = $("#somediv").gridagram(data);
 
 ![screenshot](example.jpg)
