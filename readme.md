@@ -1,7 +1,7 @@
 
 # Gridagram
 
-Dynamic grid layout for on screen data, like a poor man's [gridster](http://gridster.net/) or an even poorer man's [dashing](http://dashing.io/).
+Dynamic grid layout for on screen data, like a poor man's [gridster](http://dsmorse.github.io/gridster.js/) or an even poorer man's [dashing](http://dashing.io/).
 
 # Installation
 
