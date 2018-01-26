@@ -9,7 +9,7 @@ Download jQuery, or get it from the ``vendor`` directory.
 Copy the contents of the ``lib`` directory
 Include all files in your HTML
 
-Check out the examples for more detail
+Check out the [examples](http://julianbrowne.github.io/gridagram/examples/index.html) for more detail
 
 # Use
 
