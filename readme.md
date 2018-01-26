@@ -26,9 +26,9 @@ elements to work on:
 
 # Options
 
-width: width of widgets in pixels, default 200  
-height: height of widgets in pixels, default 100  
-titleField: field in each object to use as a title, default "title"  
-bodyField: field in each object to use as a body, default "body"  
-widgetId: field in each object to use as an id, no default  
-orderBy: sort function to order the array of objects, default is not to sort  
+**width**: width of widgets in pixels, default 200  
+**height**: height of widgets in pixels, default 100  
+**titleField**: field in each object to use as a title, default "title"  
+**bodyField**: field in each object to use as a body, default "body"  
+**widgetId**: field in each object to use as an id, no default  
+**orderBy**: sort function to order the array of objects, default is not to sort  
