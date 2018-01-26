@@ -1,37 +1,19 @@
 <html>
 <head>
-    <title>Gridagram: Example 4</title>
-
-    <script src="../vendor/jquery/jquery-2.1.4.js"></script>
-
+    <title>Example 4</title>
     <link rel="stylesheet" media="all" href="examples.css" />
-
+    <script src="../vendor/jquery/jquery-3.3.1.min.js"></script>
     <script src="../lib/jquery.gridagram.js"></script>
-    <link rel="stylesheet" media="all" href="../lib/gridagram.css" />
 </head>
 <body>
     <a href="index.html">examples</a>
     <h1>Gridagram: Example 4</h1>
     <p>Dynamic ids for widgets</p>
-    <code><pre>
 
-        var data = [ 
-            { id: "w1", title: "a title", body: "a body"}, 
-            { id: "w2", title: "b title", body: "b body"}, 
-            { id: "w3", title: "c title", body: "c body"}
-        ];
+    <div id="grid-container"></div>
+    <div id="source-container"></div>
 
-        var grid = $("#results").gridagram(data, { 
-            widgetId: function(elem) { return elem.id }
-        });
-
-        $("#w2").find(".title").html("new title");
-
-    </pre></code>
-
-    <div id="results"></div>
-
-    <script>
+    <script id="example-code">
         $(function() { 
 
             var data = [ 
@@ -40,7 +22,7 @@
                 { id: "w3", title: "c title", body: "c body"}
             ];
 
-            var grid = $("#results").gridagram(data, { 
+            var grid = $("#grid-container").gridagram(data, { 
                 widgetId: function(elem) { return elem.id }
             });
 
@@ -49,5 +31,6 @@
         });
 
     </script>
+    <script src="source-viewer.js"></script>
 </body>
 </html>

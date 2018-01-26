@@ -1,42 +1,41 @@
 <html>
 <head>
-    <title>Gridagram: Example 1</title>
-
-    <script src="../vendor/jquery/jquery-2.1.4.js"></script>
-
+    <title>Example 1</title>
     <link rel="stylesheet" media="all" href="examples.css" />
-
+    <script src="../vendor/jquery/jquery-3.3.1.min.js"></script>
     <script src="../lib/jquery.gridagram.js"></script>
-    <link rel="stylesheet" media="all" href="../lib/gridagram.css" />
 </head>
 <body>
     <a href="index.html">examples</a>
     <h1>Gridagram: Example 1</h1>
     <p>Simple data array with title and body</p>
-    <code><pre>
 
-        var data = [ 
-            { title: "a-title", body: "a-body"},
-            { title: "b-title", body: "b-body"},
-            { title: "c-title", body: "c-body"}
-        ];
+    <div id="grid-container"></div>
+    <div id="source-container"></div>
 
-        $("#results").gridagram(data);
+    <script id="example-code">
 
-    </pre></code>
-    <div id="results"></div>
-    <script>
         $(function() { 
 
             var data = [ 
-                { title: "a-title", body: "a-body"},
-                { title: "b-title", body: "b-body"},
-                { title: "c-title", body: "c-body"}
+                { 
+                    title: "abc", 
+                    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus acinia odio in elit condimentum pretium. Nam vestibulum lorem viverra sem molestie ellentesque. Nam mauris massa, feugiat vitae libero ut, maximus pulvinar nisl. Etiam sit amet bibendum ex, ut efficitur magna. Nam consequat ante metus."
+                },
+                { 
+                    title: "def", 
+                    body: "Nunc in mattis sem. Sed ornare enim massa, nec molestie augue enenatis ac. Nam eu porta odio. Sed sed vehicula justo. Nunc vel bibendum lacus. Integer ac interdum libero, at pharetra elit. Cras interdum interdum justo id efficitur. Proin varius pulvinar mauris mattis euismod."
+                },
+                { 
+                    title: "ghi", 
+                    body: "Phasellus vel tellus egestas nisl posuere dictum et ut eros. Mauris consectetur sapien in sagittis tempor. Sed commodo convallis lorem, non maximus nibh vehicula eget. Nunc non maximus tellus, sed vestibulum tellus. Aliquam vitae consectetur nunc. Integer elit tortor, consectetur in consequat eget, iaculis at orci."
+                }
             ];
 
-            $("#results").gridagram(data);
+            $("#grid-container").gridagram(data, { width: 250, height: "auto" });
 
         });
     </script>
+    <script src="source-viewer.js"></script>
 </body>
 </html>

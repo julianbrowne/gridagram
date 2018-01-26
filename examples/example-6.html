@@ -1,13 +1,9 @@
 <html>
 <head>
-    <title>Gridagram: Example 6</title>
-
-    <script src="../vendor/jquery/jquery-2.1.4.js"></script>
-
+    <title>Example 6</title>
     <link rel="stylesheet" media="all" href="examples.css" />
-
+    <script src="../vendor/jquery/jquery-3.3.1.min.js"></script>
     <script src="../lib/jquery.gridagram.js"></script>
-    <link rel="stylesheet" media="all" href="../lib/gridagram.css" />
     <style>
         .widget.red { background: red; }
         .widget.orange { background: orange; }
@@ -18,31 +14,11 @@
     <a href="index.html">examples</a>
     <h1>Gridagram: Example 6</h1>
     <p>Add dynamic class to widgets</p>
-    <code><pre>
 
-        &lt;style>
-            .red { background: red; }
-            .orange { background: orange; }
-            .green { background: green; }
-        &lt;/style>
+    <div id="grid-container"></div>
+    <div id="source-container"></div>
 
-        var data = [ 
-            { id: "3", title: "title 3", styleClass: "red", body: "body 3"}, 
-            { id: "2", title: "title 2", styleClass: "orange", body: "body 2"}, 
-            { id: "1", title: "title 1", styleClass: "green", body: "body 1"}
-        ];
-
-        var grid = $("#results").gridagram(data, { 
-            widgetClass: function(elem) { return elem.styleClass }
-        });
-
-    </pre></code>
-
-    <div id="results"></div>
-
-
-
-    <script>
+    <script id="example-code">
         $(function() { 
 
             var data = [ 
@@ -51,12 +27,13 @@
                 { id: "1", title: "title 1", styleClass: "green", body: "body 1"}
             ];
 
-            var grid = $("#results").gridagram(data, { 
+            var grid = $("#grid-container").gridagram(data, { 
                 widgetClass: function(elem) { return elem.styleClass }
             });
 
         });
 
     </script>
+    <script src="source-viewer.js"></script>
 </body>
 </html>

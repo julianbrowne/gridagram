@@ -1,10 +1,63 @@
 
-body {
+body { 
     font-family: helvetica;
     font-size: 1em;
+}
+
+h1, h1+p {
+	text-align: center;
+}
+
+#grid-container { 
+	width: 1000px;
+	margin: 20px auto;
+	border: 1px solid #EFEFEF;
+}
+
+#source-container {
+	width: 1000px;
+	margin: 20px auto;
+	clear: both;
+}
+
+#source-code-header {
+	background: #EFEFEF;
+	height: 30px;
+	line-height: 30px;
+	padding: 5px;
 }
 
 code pre {
     font-family: courier;
     font-size: 1em;
+	white-space: pre-wrap;
+}
+
+code { 
+	display: none;
+}
+
+code.show { 
+	display: block;
+}
+
+.widget { 
+    color: #000000;
+    background: #EFEFEF;
+    width: 250px;
+    display: inline-block;
+    vertical-align:top;
+    padding: 5px;
+    margin: 5px;
+    overflow: auto;
+}
+
+.widget .title { 
+	font-weight: bold;
+	text-align: center;
+	margin: 5px;
+}
+
+.widget .body { 
+	margin: 5px;
 }
